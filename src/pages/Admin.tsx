@@ -209,7 +209,7 @@ const Admin = () => {
             </div>
 
             {/* Timer */}
-            <Timer />
+            <Timer showSettings />
 
             {/* Instructions */}
             <div className="document-panel">

@@ -11,8 +11,7 @@ export interface Article {
 export interface GameState {
   articles: Article[];
   password: string;
-  timerSeconds: number;
-  isTimerRunning: boolean;
+  timerDurationMs: number; // Timer duration in milliseconds
 }
 
 const defaultArticles: Article[] = [
@@ -45,8 +44,11 @@ const defaultArticles: Article[] = [
 let gameState: GameState = {
   articles: defaultArticles,
   password: 'B493',
-  timerSeconds: 0,
-  isTimerRunning: false,
+  timerDurationMs: 5 * 60 * 1000, // Default 5 minutes
+};
+
+export const setTimerDuration = (durationMs: number): void => {
+  gameState.timerDurationMs = durationMs;
 };
 
 export const getGameState = (): GameState => ({ ...gameState });
